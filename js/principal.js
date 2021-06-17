@@ -36,9 +36,12 @@ for (var i = 0; i < pacientes.length; i++) {
         var imc = peso / (altura * altura);
         tdImc.textContent = imc.toFixed(2);
     }
-
 }
 
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click", function () {
+    window.alert("Apertou no botão!");
+});
 
 /*console.log(paciente); //tr
 console.log(tdPeso); //td que tem o peso
