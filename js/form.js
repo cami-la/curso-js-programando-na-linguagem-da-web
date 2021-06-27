@@ -7,12 +7,18 @@ botaoAdicionar.addEventListener("click", function (event) {
     
     var pacienteTr = montaTr(paciente);
 
+    
+    if(!validaPaciente(paciente)){
+        console.log("Paciente inválido");
+        return;
+    }
+
     var tabela = document.querySelector("#tabela-pacientes");
-
+    
     tabela.appendChild(pacienteTr);
-
+    
     form.reset();
-
+    
 });
 
 function obtemPacienteDoFormulario(form) {
@@ -26,14 +32,11 @@ function obtemPacienteDoFormulario(form) {
     return paciente;
 }
 
-function montaTd(paciente) {
-    
-}
 
 function montaTr(paciente) {
     var pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
-
+    
     pacienteTr.appendChild(montaTd("info-nome", paciente.nome));
     pacienteTr.appendChild(montaTd("info-peso", paciente.peso));
     pacienteTr.appendChild(montaTd("info-altura", paciente.altura));
@@ -47,6 +50,11 @@ function montaTd(classe, dado) {
     var td = document.createElement("td");
     td.classList.add(classe);
     td.textContent = dado;
-
+    
     return td;
+}
+
+function validaPaciente(paciente) {
+    if (validaPeso(paciente.peso) && validaAltura(paciente.altura)) return true;
+    else return false;
 }
