@@ -1,7 +1,13 @@
 var tabela = document.querySelector("#tabela-pacientes");
 
 tabela.addEventListener("dblclick", function(event) {
-  var alvoEvento = event.target;
+  event.target.parentNode.classList.add("fadeOut");
+
+  setTimeout(function() {
+    event.target.parentNode.remove();
+  }, 500);
+
+  /*var alvoEvento = event.target;
   var paiDoAlvo = alvoEvento.parentNode;
-  paiDoAlvo.remove();
+  paiDoAlvo.remove();*/
 });
